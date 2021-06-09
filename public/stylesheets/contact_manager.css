@@ -1,0 +1,62 @@
+/* @import url("whitespace-reset.css"); */
+
+html {
+  box-sizing: border-box;
+  margin-left: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+.active {
+  border: green;
+  background-color: green;
+  color: white;
+}
+
+.btn {
+  border: 1px solid grey;
+  padding: 6px 12px;
+}
+
+a {
+  display: inline-block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: green;
+}
+
+a:hover {
+  background-color: green;
+  color: white;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+
+}
+
+dt {
+  grid-column-start: 1;
+}
+
+dd {
+  grid-column-start: 2;
+}
+
+fieldset {
+  border: 0;
+  display: inline-block;
+}
+
+.duplicate {
+  color: red;
+}

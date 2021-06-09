@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Contact Manager</title>
+  <link rel="stylesheet" href="stylesheets/contact_manager.css" />
+  <script src="javascripts/handlebars.js"></script>
+  <script src="javascripts/contact_manager.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Contact Manager</h1>
+  </header>
+  <main>
+  </main>
+
+  <script id="sections" type="text/x-handlebars">
+    <div class="top-action-bar-section"></div>
+    <div class="contact-list-section"></div>
+    <div class="contact-form-section"></div>
+  </script>
+  
+  <script id="top-action-bar" type="text/x-handlebars">
+    <div class="add-contact-btn">
+      <a href="#" class="btn">Add Contact</a>
+    </div>
+    <div class="search">
+      <input type="text" placeholder="Search" />
+    </div>
+    <div class="tags">
+      <h4>Filter by tags:</h4>
+      {{#each tags}}
+      {{> tag-button}}
+      {{/each}}
+    </div>
+    <div class="add-tag-form">
+      <form>
+        <input type="text" name="add-tag" id="add-tag" placeholder="Add Tag">
+        <input type="submit" value="Add" class="submit btn" />
+      </form>
+      <span class="duplicate"></span>
+    </div>
+  </script>
+
+
+  <script id="tag-button" data-type="partial" type="text/x-handlebars">
+    <a href="#" class="tag-btn btn">{{tag}}</a>
+  </script>
+
+  <script id="contact" data-type="partial" type="text/x-handlebars">
+    <div data-id="{{id}}">
+      <ul>
+        <h3>{{full_name}}</h3>
+        <dl>
+          <dt>Phone Number:</dt>
+          <dd>{{phone_number}}</dd>
+          <dt>Email:</dt>
+          <dd>{{email}}</dd>
+          <dt>Tags:</dt>
+          <dd>{{tags}}</dd>
+        </dl>
+      </ul>
+      <a href="#" class="btn edit-btn">Edit</a>
+      <a href="#" class="btn delete-btn">Delete</a>
+    </div>
+  </script>
+  
+  <script id="contacts" type="text/x-handlebars">
+    {{#if contacts}}
+      {{#each contacts}}
+      {{> contact}}
+      {{/each}}
+    {{else}}
+      <p>There is no contact</p>
+    {{/if}}
+  </script>
+
+  <script id="contact-form" type="text/x-handlebars">
+    <form class="main-contact-form">
+      <fieldset>
+        <h3>{{form_name}}</h3>
+        <input type="submit" value="Submit" class="submit btn" />
+        <input type="button" value="Cancel" class="cancel btn" />
+        <dl>
+          <dt><label for="full_name">Full name:</label></dt>
+          <dd><input type="text" name="full_name" id="full_name" value="{{full_name}}" required="required"></dd>
+          <dt><label for="email">Email Address:</label></dt>
+          <dd><input type="email" name="email" id="email" value="{{email}}" required="required"></dd>
+          <dt><label for="phone_number">Phone number:</label></dt>
+          <dd><input type="number" name="phone_number" id="phone_number" value="{{phone_number}}" required="required"></dd>
+          <dt><label for="tags"></label></dt>
+          <dd><input type="hidden" name="tags" id="tags" value="{{tags}}"></dd>
+        </dl>
+      </fieldset>
+    </form>
+  </script>
+
+  <script id="tag-form" type="text/x-handlebars">
+    <form class="tag-list-form">
+      <fieldset>
+        <h4>Select tags:</h4>
+        {{#each tags}}
+        {{> tag-list}}
+        {{/each}}
+      </fieldset>
+    </form>
+  </script>
+
+  <script id="tag-list" data-type="partial" type="text/x-handlebars">
+    <div class="{{tag}}">
+      <input type="checkbox" name="tags" id="tags" value="{{tag}}">
+      <label for="tags">{{tag}}</label>
+    </div>
+  </script>
+
+
+</body>
+</html>

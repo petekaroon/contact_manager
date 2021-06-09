@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "full_name": "Naveed Fida",
+    "email": "nf@example.coma",
+    "phone_number": "12345678901",
+    "tags": "work,friend"
+  },
+  {
+    "id": 2,
+    "full_name": "Victor Reyes",
+    "email": "vpr@example.com",
+    "phone_number": "09876543210",
+    "tags": "work,friend,manager"
+  },
+  {
+    "full_name": "Pete Hansen",
+    "phone_number": "123456798",
+    "email": "asdf@asd",
+    "tags": "work",
+    "id": 3
+  }
+]
